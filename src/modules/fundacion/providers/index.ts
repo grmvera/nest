@@ -1,1 +1,1 @@
-export * from './fundacion.entity'
+export * from './fundacion.providers'

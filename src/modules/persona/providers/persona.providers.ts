@@ -1,23 +1,24 @@
+import { FundacionEntity } from 'src/modules/fundacion/entities/fundacion.entity';
+import { RepositoryEnum } from 'src/shared/enums';
 import { DataSource } from 'typeorm';
+import { PersonaEntity } from '../entities/persona.entity';
 
 
 // import { DataSourceEnum, RepositoryEnum } from '@shared/enums';
 // import { RequirementRequestEntity } from '../entities/requirement-request.entity';
 
-import { PersonaEntity } from 'src/modules/persona/entities/persona.entity';
-import { FundacionEntity } from 'src/modules/sales/entities';
 
 export const personaProviders = [
   {
-    // provide: RepositoryEnum.FUNDACION_REPOSITORY,
+    provide: RepositoryEnum.PERSONA_REPOSITORY,
     useFactory: (dataSource: DataSource) =>
-      dataSource.getRepository(FundacionEntity),
+      dataSource.getRepository(PersonaEntity),
     // inject: [DataSourceEnum.PG_DATA_SOURCE],
   },
   {
-    // provide: RepositoryEnum.persona_REPOSITORY,
+    provide: RepositoryEnum.FUNDACION_REPOSITORY,
     useFactory: (dataSource: DataSource) =>
-      dataSource.getRepository(PersonaEntity),
+      dataSource.getRepository(FundacionEntity),
     // inject: [DataSourceEnum.PG_DATA_SOURCE],
   },
 

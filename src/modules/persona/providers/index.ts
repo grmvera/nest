@@ -1,1 +1,1 @@
-export * from './persona.entity'
+export * from './persona.providers'

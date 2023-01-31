@@ -1,8 +1,9 @@
+import { FundacionEntity } from "src/modules/fundacion/entities/fundacion.entity";
 import { PersonaEntity } from "src/modules/sales/entities";
 import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, DeleteDateColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { OneToMany } from "typeorm/decorator/relations/OneToMany";
 
-export class CategoryEntity{
+export class PersonaEntity{
 
     @PrimaryGeneratedColumn('uuid')
     id:number;
@@ -39,8 +40,8 @@ export class CategoryEntity{
     
     //Relationship   
      // Relaciones de uno a muchos
-    @OneToMany(() => PersonaEntity , (personat) => persona.category)
-    persona: PersonaEntity[]
+     @ManyToOne(() => FundacionEntity, (fundacion) => fundacion.personas)
+     fundacion: FundacionEntity;
 
     // Relaciones de muchos a uno
     // @ManyToOne(() => CategoryEntity, (cateogry) => category.persona)
