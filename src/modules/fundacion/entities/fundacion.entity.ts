@@ -1,6 +1,6 @@
 import { PersonaEntity } from "src/modules/persona/entities/persona.entity";
 import { FundacionEntity } from "src/modules/sales/entities";
-import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, DeleteDateColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, DeleteDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { OneToMany } from "typeorm/decorator/relations/OneToMany";
 
 export class FundacionEntity{
@@ -32,12 +32,39 @@ export class FundacionEntity{
     // category: CategoryEntity;
     
     @Column('varchar', {
-    name:'title',
+    name:'nombre',
+    length:'50',
     unique:true,
-    comment: 'titulo del fundacionto',
+    comment: 'nombre de la fundacionto',
     })
-    name:string;
+    nombre:string;
     
+    @Column('varchar', {
+    name:'direccion',
+    length:'50',
+    unique:true,
+    comment: 'direccion de la fundacion',
+    })
+    direccion:string;
+
+    @Column('varchar', {
+    name:'encargado',
+    length:'50',
+    unique:true,
+    comment: 'nombre del encargado',
+    })
+    encargado:string;
+    
+    @Column('varchar', {
+    name:'telefono',
+    length:'10',
+    unique:true,
+    comment: 'numero de telefono de la fundacion',
+    })
+    telefono:string;
+   
+
+
     //Relationship   
      // Relaciones de uno a muchos
     @OneToMany(() => PersonaEntity , (persona) => persona.fundacion)

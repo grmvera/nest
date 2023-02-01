@@ -1,17 +1,35 @@
 import { IsNotEmpty } from "class-validator";
-import { isPositive, IsString } from "class-validator/types/decorator/decorators";
+import { IsIn, IsOptional, isPositive, IsString } from "class-validator/types/decorator/decorators";
+import { PersonaEntity } from "src/modules/persona/entities/persona.entity";
 import { FundacionEntity } from "src/modules/sales/entities";
 // import { isNotEmptyValidationOpntions, IsStringValidationOpntions,IsPositiveValidationOpntions } from '@shared/validation'
 export  class BasePersonatDto{
 
+    @IsString()
     @IsNotEmpty(isNotEmptyValidationOpntions())
     @IsString(IsStringValidationOpntions())
-    readonly name:string;
+    readonly nombre:string;
 
-
+    @IsString()
     @IsNotEmpty(isNotEmptyValidationOpntions())
     @IsString(IsStringValidationOpntions())
-    readonly fundacion:FundacionEntity[];
+    readonly direccion:string;
+
+    @IsString()
+    @IsNotEmpty(isNotEmptyValidationOpntions())
+    @IsString(IsStringValidationOpntions())
+    readonly encargado:string;
+
+    @IsOptional()
+    @IsString()
+    @IsString(IsStringValidationOpntions())
+    readonly telefono:string;
+
+    @IsNotEmpty()
+    @IsString()
+    @IsIn([])
+    @IsNotEmpty(isNotEmptyValidationOpntions())
+    readonly Persona:PersonaEntity[];
     
 }
 

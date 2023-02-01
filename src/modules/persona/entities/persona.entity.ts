@@ -32,12 +32,37 @@ export class PersonaEntity{
     // category: CategoryEntity;
     
     @Column('varchar', {
-    name:'title',
+    name:'nombre',
+    length:'50',
     unique:true,
-    comment: 'titulo del personato',
+    comment: 'nombre de la persona',
     })
     name:string;
+        
+    @Column('varchar', {
+    name:'cedula',
+    length:'10',
+    unique:true,
+    comment: 'cedula de la persona',
+    })
+    direccion:string;
     
+    @Column('date', {
+    name:'fechaNacimiento',
+    length:'10',
+    unique:true,
+    comment: 'nombre del encargado',
+    })
+    fechaNacimiento:date;
+        
+    @Column('varchar', {
+    name:'nacionalidad',
+    length:'25',
+    unique:true,
+    comment: 'naciondalidad de la persona',
+    })
+    nacionalidad:string;
+       
     //Relationship   
      // Relaciones de uno a muchos
      @ManyToOne(() => FundacionEntity, (fundacion) => fundacion.personas)
